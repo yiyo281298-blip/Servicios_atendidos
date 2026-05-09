@@ -22,7 +22,7 @@ Este proyecto fue desarrollado bajo las 7 fases principales de la metodología C
 *   **Objetivo:** Desarrollar un modelo predictivo capaz de estimar la `CANTIDAD` de servicios basados en variables históricas.
 
 ### 2. Recolección de Datos (Data Preparation - Extraction)
-*   Se obtuvo el archivo original `SERVICIOS_ATENDIDOS_POR_LA_INSPECCION_DE_POLICIA_20260508.csv` que contiene registros desde 2020 hasta el tercer/cuarto trimestre de 2024.
+*   Se obtuvo el archivo original `datos_inspeccion.csv` que contiene registros desde 2020 hasta el tercer/cuarto trimestre de 2024.
 
 ### 3. Preparación de Datos (ETL y EDA)
 *   **Limpieza (ETL):** Tratamiento de valores faltantes (si los hay), estandarización de columnas (AÑO, MES) y formateo de la variable objetivo (`CANTIDAD`).
@@ -51,7 +51,7 @@ Este proyecto fue desarrollado bajo las 7 fases principales de la metodología C
 📁 Proyecto
 ├── 📄 README.md                        # Documentación del proyecto (este archivo)
 ├── 📄 requirements.txt                 # Dependencias del proyecto
-├── 📄 SERVICIOS_ATENDIDOS_POR_LA_INSPECCION_DE_POLICIA_20260508.csv  # Dataset
+├── 📄 datos_inspeccion.csv  # Dataset
 ├── 📓 01_ETL_EDA.ipynb                 # Cuaderno de Extracción y EDA
 ├── 📓 02_Modelo_Regresion.ipynb        # Cuaderno de Entrenamiento y Modelo
 ├── 📦 modelo_regresion.pkl             # Modelo entrenado listo para producción

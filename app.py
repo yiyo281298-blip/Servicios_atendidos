@@ -1,3 +1,4 @@
+import os
 import streamlit as st
 import pandas as pd
 import pickle
@@ -6,11 +7,15 @@ st.set_page_config(page_title="Predicción de Servicios Policiales", page_icon="
 
 st.title("🚔 Dashboard de Predicción - Inspección de Policía")
 
+# Resolver rutas absolutas
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+CSV_PATH = os.path.join(BASE_DIR, 'datos_inspeccion.csv')
+MODEL_PATH = os.path.join(BASE_DIR, 'modelo_regresion.pkl')
+
 @st.cache_resource
-def load_or_train_model():
-    model_path = 'modelo_regresion.pkl'
+def get_trained_model_v2():
     try:
-        with open(model_path, 'rb') as file:
+        with open(MODEL_PATH, 'rb') as file:
             model = pickle.load(file)
         return model
     except FileNotFoundError:
@@ -23,7 +28,7 @@ def load_or_train_model():
             from sklearn.pipeline import Pipeline
             from sklearn.linear_model import LinearRegression
             
-            df = pd.read_csv('SERVICIOS_ATENDIDOS_POR_LA_INSPECCION_DE_POLICIA_20260508.csv')
+            df = pd.read_csv(CSV_PATH)
             df['AÑO'] = df['AÑO'].astype(str).str.replace(',', '')
             
             X = df[['AÑO', 'MES', 'TIPO DE SERVICIO']]
@@ -43,7 +48,7 @@ def load_or_train_model():
             pipeline.fit(X, y)
             
             # Guardar el modelo recién entrenado
-            with open(model_path, 'wb') as file:
+            with open(MODEL_PATH, 'wb') as file:
                 pickle.dump(pipeline, file)
                 
             st.success("✅ Modelo entrenado y guardado exitosamente.")
@@ -52,7 +57,7 @@ def load_or_train_model():
             st.error(f"Error al entrenar el modelo: {e}")
             return None
 
-model = load_or_train_model()
+model = get_trained_model_v2()
 
 if model is None:
     st.error("❌ No se pudo cargar ni entrenar el modelo.")
@@ -91,7 +96,7 @@ else:
 st.markdown("---")
 st.markdown("### 📊 Datos Históricos")
 try:
-    df = pd.read_csv('SERVICIOS_ATENDIDOS_POR_LA_INSPECCION_DE_POLICIA_20260508.csv')
+    df = pd.read_csv(CSV_PATH)
     st.dataframe(df.head(50))
-except:
-    st.warning("No se pudo cargar el dataset original.")
+except Exception as e:
+    st.warning(f"No se pudo cargar el dataset original. Razón: {e}")

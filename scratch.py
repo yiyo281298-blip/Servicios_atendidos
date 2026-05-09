@@ -6,7 +6,7 @@ from sklearn.pipeline import Pipeline
 from sklearn.linear_model import LinearRegression
 import pickle
 
-df = pd.read_csv('SERVICIOS_ATENDIDOS_POR_LA_INSPECCION_DE_POLICIA_20260508.csv')
+df = pd.read_csv('datos_inspeccion.csv')
 df['AÑO'] = df['AÑO'].astype(str).str.replace(',', '')
 
 X = df[['AÑO', 'MES', 'TIPO DE SERVICIO']]
