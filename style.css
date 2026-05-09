@@ -1,0 +1,218 @@
+:root {
+    --primary-color: #0A192F;
+    --secondary-color: #64FFDA;
+    --text-light: #CCD6F6;
+    --text-dark: #8892B0;
+    --bg-color: #020C1B;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    background: linear-gradient(135deg, rgba(10,25,47,0.9), rgba(2,12,27,0.9)), url('https://images.unsplash.com/photo-1585822765355-08147d10eab5?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.glass-container {
+    background: rgba(10, 25, 47, 0.6);
+    backdrop-filter: blur(10px);
+    padding: 3rem;
+    border-radius: 20px;
+    border: 1px solid rgba(100, 255, 218, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    max-width: 800px;
+    animation: fadeIn 1.5s ease;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    color: var(--text-light);
+    margin-bottom: 0.5rem;
+}
+
+.hero h2 {
+    font-size: 1.8rem;
+    color: var(--secondary-color);
+    margin-bottom: 1.5rem;
+    font-weight: 400;
+}
+
+.btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background-color: transparent;
+    color: var(--secondary-color);
+    border: 1px solid var(--secondary-color);
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    margin-top: 1.5rem;
+}
+
+.btn:hover {
+    background-color: rgba(100, 255, 218, 0.1);
+    transform: translateY(-3px);
+}
+
+/* Sections */
+.section {
+    padding: 6rem 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+.alt-bg {
+    background-color: #0A192F;
+}
+
+.content {
+    max-width: 1200px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4rem;
+    align-items: center;
+}
+
+.flex-col {
+    flex-direction: column;
+    text-align: center;
+}
+
+.text-content {
+    flex: 1;
+    min-width: 300px;
+}
+
+.text-content h2 {
+    color: var(--text-light);
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.text-content h2::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 3px;
+    background-color: var(--secondary-color);
+    margin-top: 0.5rem;
+}
+
+.text-content p {
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+/* Card */
+.image-content {
+    flex: 1;
+    min-width: 300px;
+}
+
+.badge-card {
+    background-color: #112240;
+    padding: 2.5rem;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px -15px rgba(2,12,27,0.7);
+    transition: transform 0.3s ease;
+}
+
+.badge-card:hover {
+    transform: translateY(-10px);
+}
+
+.badge-card h3 {
+    color: var(--secondary-color);
+    margin-bottom: 1.5rem;
+}
+
+.badge-card ul {
+    list-style: none;
+}
+
+.badge-card ul li {
+    margin-bottom: 0.8rem;
+    color: var(--text-dark);
+    display: flex;
+    align-items: center;
+}
+
+.badge-card ul li::before {
+    content: '▹';
+    color: var(--secondary-color);
+    margin-right: 10px;
+}
+
+/* Table */
+.data-table {
+    width: 100%;
+    max-width: 800px;
+    border-collapse: collapse;
+    margin-top: 2rem;
+    background-color: #112240;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px -15px rgba(2,12,27,0.7);
+}
+
+.data-table th, .data-table td {
+    padding: 1rem 1.5rem;
+    text-align: left;
+}
+
+.data-table th {
+    background-color: rgba(100, 255, 218, 0.1);
+    color: var(--secondary-color);
+    font-weight: 600;
+}
+
+.data-table tr {
+    border-bottom: 1px solid #233554;
+}
+
+.data-table tr:last-child {
+    border-bottom: none;
+}
+
+.data-table tr:hover {
+    background-color: #233554;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2rem;
+    color: var(--text-dark);
+    border-top: 1px solid #233554;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+    .hero h1 { font-size: 2.5rem; }
+    .hero h2 { font-size: 1.2rem; }
+}

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predicción de Servicios Policiales</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="hero">
+        <div class="glass-container">
+            <h1>Inspección de Policía</h1>
+            <h2>Modelo Predictivo de Servicios Atendidos</h2>
+            <p>Utilizando Machine Learning para optimizar los recursos y mejorar el tiempo de respuesta.</p>
+            <a href="#about" class="btn">Conocer el Proyecto</a>
+        </div>
+    </header>
+
+    <section id="about" class="section">
+        <div class="content">
+            <div class="text-content">
+                <h2>El Problema y Objetivo</h2>
+                <p>Las inspecciones de policía reciben diariamente cientos de solicitudes, que van desde querellas hasta medidas de protección y audiencias de conciliación. El desafío principal radica en la gestión de recursos de manera eficiente.</p>
+                <p><strong>El objetivo:</strong> A través de un modelo de <em>Regresión Lineal</em> implementado bajo la metodología <strong>CRISP-ML</strong>, predecimos la cantidad de servicios requeridos según variables temporales, logrando así anticiparnos a la demanda y prepararnos de forma proactiva.</p>
+            </div>
+            <div class="image-content">
+                <div class="badge-card">
+                    <h3>Metodología CRISP-ML</h3>
+                    <ul>
+                        <li>1. Identificación del Problema</li>
+                        <li>2. Recolección de Datos</li>
+                        <li>3. Preparación (ETL & EDA)</li>
+                        <li>4. Ingeniería de Modelos</li>
+                        <li>5. Evaluación</li>
+                        <li>6. Despliegue</li>
+                        <li>7. Mantenimiento</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section alt-bg">
+        <div class="content flex-col">
+            <h2>Tabla de Variables</h2>
+            <p>El modelo utiliza las siguientes características para realizar sus estimaciones.</p>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Variable</th>
+                        <th>Tipo</th>
+                        <th>Descripción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>AÑO</td>
+                        <td>Categórica</td>
+                        <td>Año en el que se prestó el servicio (ej. 2020, 2024).</td>
+                    </tr>
+                    <tr>
+                        <td>MES</td>
+                        <td>Categórica</td>
+                        <td>Periodo del año (ej. Enero a Diciembre, Trimestres).</td>
+                    </tr>
+                    <tr>
+                        <td>TIPO DE SERVICIO</td>
+                        <td>Categórica</td>
+                        <td>Clasificación del servicio (Querellas, Citaciones, etc.).</td>
+                    </tr>
+                    <tr>
+                        <td><strong>CANTIDAD</strong></td>
+                        <td><strong>Numérica (Target)</strong></td>
+                        <td>Variable a predecir. Volumen total del servicio.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <footer>
+        <p>Desarrollado para la optimización de procesos mediante IA. Proyecto End-to-End.</p>
+    </footer>
+</body>
+</html>
